@@ -16,7 +16,7 @@
         <tr>
           <td>Население</td>
           <td></td>
-          <td>7 101 859</td>
+          <td>6 838 937</td>
         </tr>
         <tr>
           <td>Столица</td>
@@ -44,10 +44,15 @@
       }
    }
    catch (PDOException $e) {
-      print "<tr><td>Няма връзка към базата. Опитайте отново.</td></tr>\n";
+      print "<tr><td><div align='center'>\n";
+      print "Няма връзка към базата. Опитайте отново. <a href=\"#\" onclick=\"document.getElementById('error').style = 'display: block;';\">Детайли</a><br/>\n";
+      print "<span id='error' style='display: none;'><small><i>".$e->getMessage()." <a href=\"#\" onclick=\"document.getElementById('error').style = 'display: none;';\">Скрий</a></i></small></span>\n";
+      print "</div></td></tr>\n";
    }
 ?>
       </table>
+
+      <?php print "<br /><br /><br /><small>Processed by <b>".gethostname()."</b> on ".date('Y-m-d-H-i-s')."</small>\n"; ?>
     </div>
   </body>
 </html>
